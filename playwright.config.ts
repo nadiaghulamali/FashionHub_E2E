@@ -61,19 +61,28 @@ export default defineConfig({
 
   // Run all 3 browsers
   projects: [
-    {
-      name: 'Chromium',
-      use: { ...devices['Desktop Chrome'] }
-    },
-    {
-      name: 'Firefox',
-      use: { ...devices['Desktop Firefox'] }
-    },
-    {
-      name: 'WebKit',
-      use: { ...devices['Desktop Safari'] }
+  {
+    name: 'Chromium',
+    use: { 
+      ...devices['Desktop Chrome'],
+      headless: true
     }
-  ],
+  },
+  {
+    name: 'Firefox',
+    use: { 
+      ...devices['Desktop Firefox'],
+      headless: true
+    }
+  },
+  {
+    name: 'WebKit',
+    use: { 
+      ...devices['Desktop Safari'],
+      headless: true
+    }
+  }
+],
 
   outputDir: 'test-results/',
 });
