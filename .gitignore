@@ -1,0 +1,30 @@
+--- Dependencies and Artifacts ---
+
+/node_modules/
+/dist/
+/build/
+
+--- Playwright Test Output and State ---
+
+Binary dependencies
+
+.playwright/
+
+Reports and test data
+
+playwright-report/
+test-results/
+reports/
+state-*.json
+
+--- Sensitive/Local Configuration ---
+
+Environment variables file
+
+.env
+
+--- Operating System Files ---
+
+macOS system files
+
+.DS_Store

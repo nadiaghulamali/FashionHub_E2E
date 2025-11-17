@@ -1,0 +1,24 @@
+{
+  "name": "fashionhub-automation",
+  "version": "1.0.0",
+  "description": "Playwright + TS tests for FashionHub Demo App",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:report": "npx playwright show-report",
+    "auth:setup": "npx playwright test tests/setup-auth.spec.ts --project=chromium",
+    "pr:run": "ts-node scripts/fetch-prs.ts"
+  },
+  "dependencies": {
+    "axios": "^1.7.0",
+    "csv-writer": "^1.6.0",
+    "dotenv": "^17.2.3",
+    "exceljs": "^4.4.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^20.5.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.3"
+  }
+}
