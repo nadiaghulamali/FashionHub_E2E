@@ -40,7 +40,7 @@ npx playwright test
 
 ### Run a specific test
 ```bash
-npx playwright test tests/login.spec.ts
+npx playwright test tests/tc3_login.spec.ts
 ```
 
 ## Docker Support
@@ -59,7 +59,7 @@ docker run --rm fashionhub-tests
 
 ### Run tests for a specific environment
 ```bash
-docker run --rm -e ENV=local fashionhub-tests
+docker run --rm -e ENV=production fashionhub-tests
 ```
 
 ### Open the last HTML report
