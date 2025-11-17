@@ -1,83 +1,89 @@
-E2E Test Suite
+# E2E Test Suite
 
-This End-to-End (E2E) test suite validates both the core login functionality and the overall health of the e-commerce application using Playwright.
+This End-to-End (E2E) test suite validates both the core login functionality and the overall health of the e-commerce application using Playwright.  
 It includes strict checks for:
 
-Console errors
+- Console errors
+- Broken links
+- Multiple login scenarios (success, failure, and edge cases)
+- GitHub Open PR Reporting — validates the GitHub `/pulls` API, generates a CSV/Excel-compatible report, and ensures correct formatting, escaping, and placeholder handling for missing fields
 
-Broken links
-
-Multiple login scenarios (success, failure, and edge cases)
-
-GitHub Open PR Reporting — validates the GitHub /pulls API, generates a CSV/Excel-compatible report, and ensures correct formatting, escaping, and placeholder handling for missing fields
-
-Note:
-The generated CSV/Excel file is saved inside the framework directory.
-VS Code cannot open it by simply clicking on the file name—you must open it manually in Excel or another CSV viewer.
+**Note:**  
+The generated CSV/Excel file is saved inside the framework directory.  
+VS Code may not open it by double-clicking — open it manually in Excel or any CSV viewer.
 
 ![alt text](image.png)
 
-🛠 Installation
+## Installation
 
-Clone this repository:
-
+### Clone the repository
+```bash
 git clone https://github.com/nadiaghulamali/FashionHub_E2E.git
+```
 
-
-Install dependencies:
-
+### Install dependencies
+```bash
 npm install
+```
 
-
-Playwright browsers (if needed):
-
+### Install Playwright browsers (if needed)
+```bash
 npx playwright install
+```
 
-▶️ Running the Test Suite
-Run all tests:
+## Running the Test Suite
+
+### Run all tests
+```bash
 npx playwright test
+```
 
-Run a specific test:
+### Run a specific test
+```bash
 npx playwright test tests/login.spec.ts
+```
 
+## Docker Support
 
-🐳 Docker Support
+This project includes a Docker setup for stable, reproducible test execution — ideal for CI/CD pipelines.
 
-This project includes a Docker setup for stable, reproducible test execution—ideal for CI/CD pipelines.
-
-Build the Docker image:
+### Build the Docker image
+```bash
 docker build -t fashionhub-tests .
+```
 
-Run tests:
+### Run tests
+```bash
 docker run --rm fashionhub-tests
+```
 
-Run tests for a specific environment:
+### Run tests for a specific environment
+```bash
 docker run --rm -e ENV=local fashionhub-tests
+```
 
-To open last HTML report run:
+### Open the last HTML report
+```bash
+npx playwright show-report
+```
 
-  npx playwright show-report
+The `--rm` flag cleans up the container after execution.
 
-The --rm flag cleans up the container after execution.
+## CI/CD: GitHub Actions
 
-⚙️ CI/CD: GitHub Actions
+CI executes tests inside Docker for reliability and consistency.
 
-For reliability, CI uses Docker-based execution.
 Typical CI steps include:
 
-Checkout the code
+1. Checkout repository  
+2. Build Docker image  
+3. Run tests in the container  
+4. Upload artifacts (`test-results/`)
 
-Build Docker image
-
-Execute tests inside the container
-
-Upload artifacts (test-results/)
-
-Example commands:
-
+### Example Docker commands used in CI
+```bash
 docker build -t fashionhub-tests .
 docker run --rm -e ENV=staging fashionhub-tests
-
+```
 
 Artifacts such as screenshots, videos, logs, and PR reports are uploaded via GitHub Actions.
-
