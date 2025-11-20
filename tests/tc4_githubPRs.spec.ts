@@ -5,7 +5,6 @@ import { CsvGenerator } from '../src/utils/csvGenerator';
 const REPO_OWNER = 'appwrite';
 const REPO_NAME = 'appwrite';
 
-// FULL API URL to avoid Playwright baseURL issues
 const FULL_PULLS_URL =
   `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/pulls?state=open`;
 
@@ -15,10 +14,6 @@ const INVALID_REPO_URL =
 
 const csvGenerator = new CsvGenerator();
 
-
-// ================================================================
-//   TC4 Test Suite Wrapper
-// ================================================================
 test.describe('TC4 GitHub Open PR Report Generation', () => {
 
   // ============================ A1 ============================

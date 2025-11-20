@@ -15,12 +15,11 @@ export default async function globalTeardown() {
     // WAIT LONGER to guarantee file system sync inside Docker
     await new Promise(res => setTimeout(res, 10000));
 
-    // Double check file exists before container exits
     if (fs.existsSync(filePath)) {
       const stats = fs.statSync(filePath);
-      console.log("✔ File exists. Size:", stats.size, "bytes");
+      console.log("File exists. Size:", stats.size, "bytes");
     } else {
-      console.error("❌ Excel file NOT FOUND after wait:", filePath);
+      console.error("Excel file NOT FOUND after wait:", filePath);
     }
 
   } catch (err) {

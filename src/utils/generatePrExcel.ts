@@ -41,7 +41,7 @@ export async function generateFinalPrExcel() {
 
   // 2. Style the header row for readability
   sheet.getRow(1).eachCell(cell => {
-    cell.font = { bold: true, color: { argb: "FFFFFFFF" } }; // White bold text
+    cell.font = { bold: true, color: { argb: "FFFFFFFF" } }; 
     cell.fill = {
       type: "pattern",
       pattern: "solid",

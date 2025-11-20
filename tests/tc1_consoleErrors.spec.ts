@@ -89,7 +89,7 @@ test.describe("Use Case 1 Console Error Validation (Strict) @usecase1", () => {
 
         for (let i = 0; i < Math.min(count, 5); i++) {
             const item = items.nth(i);
-            // Use trial click to simulate the click event without navigating away
+         
             await item.hover({ timeout: 500 });
             await item.click({ trial: true, timeout: 500 });
         }

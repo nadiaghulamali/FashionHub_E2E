@@ -10,14 +10,15 @@ type CustomWorkerFixtures = {
 };
 
 // Test fixtures
+
 type CustomTestFixtures = {
   linkExtractor: LinkExtractor;
   httpValidator: HttpValidator;
-  appUrls: AppUrls;   // <-- MUST BE HERE
+  appUrls: AppUrls; 
 };
 
 export const test = base
-  // ---------------- Worker Fixtures ----------------
+
   .extend<CustomWorkerFixtures>({
     baseUrl: async ({}, use) => {
       const resolved = await resolveBaseUrl();
@@ -25,8 +26,7 @@ export const test = base
     },
   })
 
-  // ---------------- Test Fixtures ----------------
-  .extend<CustomTestFixtures>({   // <-- MUST INCLUDE GENERICS HERE
+  .extend<CustomTestFixtures>({  
     linkExtractor: async ({ baseUrl }, use) => {
       await use(new LinkExtractor(baseUrl));
     },

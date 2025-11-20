@@ -58,7 +58,6 @@ export class LinkExtractor {
       const normalized = this.normalize(link.absoluteUrl);
       const linkPathname = new URL(normalized).pathname;
 
-      // internal link check (must belong to the app root path)
       if (!linkPathname.startsWith(this.basePathname)) {
         continue;
       }

@@ -9,16 +9,15 @@ export class UrlFilter {
      * @returns True if the URL should be validated via HTTP request.
      */
     static isValidHttpUrl(url: string): boolean {
-        // Exclude special schemes (TC2.6)
+   
         if (url.startsWith('mailto:') || url.startsWith('tel:') || url.startsWith('javascript:')) {
             return false;
         }
-        // Exclude in-page fragment links
+  
         if (url.includes('#') && url.split('#')[0] === '') {
             return false;
         }
 
-        // Must start with http or https
         return url.startsWith('http://') || url.startsWith('https://');
     }
 
